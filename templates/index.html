@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL Shortener</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+
+<body>
+    <div class="container">
+        <div class="card">
+            <h1>URL Shortener</h1>
+            <p>Paste your long URL and get a short link.</p>
+
+            <form method="POST">
+                <input type="url" name="url" placeholder="Enter your long URL..." required>
+                <button type="submit">Shorten URL</button>
+            </form>
+
+            {% if short_url %}
+            <div class="result">
+                <p>Your Short URL:</p>
+                <a href="{{ short_url }}" target="_blank">{{ short_url }}</a>
+            </div>
+            {% endif %}
+
+            {% if error %}
+            <p class="error">{{ error }}</p>
+            {% endif %}
+        </div>
+    </div>
+</body>
+
+
+</html>
