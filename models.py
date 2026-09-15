@@ -1,5 +1,6 @@
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
+
 db = SQLAlchemy()
 
 class Url(db.Model):
@@ -8,7 +9,5 @@ class Url(db.Model):
     short_code = db.Column(db.String(20), unique=True, nullable=False)
     created_at = db.Column(db.DateTime, default=datetime.utcnow)
     clicks = db.Column(db.Integer, default=0)
-
-
 
 
